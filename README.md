@@ -1,1 +1,1 @@
-### this is my first python project in this project i have exercised conditionals and build a quiz app
+### this repository have python projects I am building to reinforce my programming knowledge 
