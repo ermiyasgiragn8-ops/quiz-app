@@ -50,7 +50,7 @@ def num_range():
 def generate_random():
     rand_num = num_range()
     while True:
-        my_guess = randint(0, rand_num)
+        my_guess = randint(1, rand_num)
         print(f"the range is going to be from 1 upto {rand_num}")
         return my_guess
 
@@ -58,7 +58,7 @@ def generate_random():
 def comparing(guess, target):
     if guess == target:
         print("wow you nailed it you guessed the correct number")
-        quit()
+        return True
     elif guess < target:
         print("your guess is too low try again ")
     elif guess > target:
@@ -66,20 +66,25 @@ def comparing(guess, target):
 
 
 def game_logic():
-    finalnum = generate_random()
     m = 0
     while True:
+        finalnum = generate_random()
         while True:
             try:
                 guess = int(input("please guess a number "))
-
+                print(guess)
+                print(finalnum)
                 value = check_number(guess)
                 if value == False:
                     print("you have entered a negative number ")
                     m = counting(m)
                     continue
                 else:
-                    comparing(value, finalnum)
+                    logic = comparing(value, finalnum)
+                    if logic:
+                        break
+                    else:
+                        continue
             except:
                 print("value error you have entered an invalid number")
                 quit()
